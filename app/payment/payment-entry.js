@@ -7,8 +7,9 @@
         return {
             restrict: 'EAC',
             scope: {
-                payment: '=payment',
-                deletePayment: '&deletePayment'
+                payment: '=',
+                deletePayment: '&',
+                makeDefault: '&'
             },
             templateUrl: '/app/payment/payment-entry.html'
         }

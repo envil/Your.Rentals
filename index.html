@@ -27,7 +27,7 @@
       <div class="container panel panel-default">
         <!-- <div class="panel-body"> -->
           <ul class="list-group">
-            <li class="row list-group-item" payment-entry payment="payment" delete-payment='deletePayment($index)' ng-repeat="payment in payments track by $index"></li>
+            <li class="row list-group-item" payment-entry payment="payment" delete-payment='deletePayment($index)' make-default='makeDefault($index)' ng-repeat="payment in payments track by $index"></li>
           </ul>
         <!-- </div> -->
       </div>
