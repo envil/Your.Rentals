@@ -1,5 +1,0 @@
-<label class="col-sm-4">{{payment.cardNumber | cardNumberFilter}}</label>
-<label class="col-sm-2 text-center">{{payment.expiration.month}}/{{payment.expiration.year}}</label>
-<label class="col-sm-4 text-center" ng-if="payment.isDefault">Default</label>
-<label class="col-sm-4 text-center" ng-if="!payment.isDefault"><button type="button" class="btn btn-default" ng-click="makeDefault()">Make Default</button></label>
-<button type="button" class="col-sm-2 btn btn-danger" ng-click="deletePayment()">Delete</button>
