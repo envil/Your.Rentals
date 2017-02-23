@@ -3,7 +3,8 @@
 
     var app = angular.module('yrapp');
 
-    var paymentEntry = function() {
+    var yrPaymentEntry = function() {
+
         return {
             restrict: 'EAC',
             scope: {
@@ -11,9 +12,9 @@
                 deletePayment: '&',
                 makeDefault: '&'
             },
-            templateUrl: '/app/payment/payment-entry.html'
+            templateUrl: '/app/payment/yrPaymentEntry.html'
         }
     };
 
-    app.directive('paymentEntry', paymentEntry);
+    app.directive('yrPaymentEntry', yrPaymentEntry);
 }());

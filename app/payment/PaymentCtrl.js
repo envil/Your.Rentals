@@ -3,6 +3,7 @@
     var app = angular.module('yrapp');
 
     var MainCtrl = function($scope) {
+        $scope.showAddFormFlag = false;
         $scope.payments = [{
             'cardNumber': '1234123412341234',
             'expiration': {
@@ -41,6 +42,10 @@
               $scope.payments[index].isDefault = true;
             }
           }
+        }
+
+        $scope.toggleAddForm = function (flag) {
+          $scope.showAddFormFlag = flag;
         }
     };
 

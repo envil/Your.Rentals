@@ -25,21 +25,45 @@
         <h1>Manage Your Payment Methods</h1>
       </div>
       <div class="container panel panel-default">
-        <!-- <div class="panel-body"> -->
-          <ul class="list-group">
-            <li class="row list-group-item" payment-entry payment="payment" delete-payment='deletePayment($index)' make-default='makeDefault($index)' ng-repeat="payment in payments track by $index"></li>
-          </ul>
-        <!-- </div> -->
+        <ul class="list-group">
+          <li class="row list-group-item" yr-payment-entry payment="payment" delete-payment='deletePayment($index)' make-default='makeDefault($index)' ng-repeat="payment in payments track by $index"></li>
+          <li class="list-group-item" ng-show="showAddFormFlag">
+            <div class="row">
+              <label class="col-sm-4" for="cardNumber">Card Number</label>
+              <label class="col-sm-2 text-center" for="month">Expiration</label>
+              <label class="col-sm-1 text-center" for="month">CVC</label>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <input type="text" class="form-control" id="" placeholder="Card Number">
+              </div>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" id="" placeholder="MM">
+              </div>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" id="" placeholder="YY">
+              </div>
+              <div class="col-sm-1">
+                <input type="text" class="form-control" id="" placeholder="CVC">
+              </div>
+              <div class="col-sm-5">
+                <div class="row">
+                  <button type="button" class="btn btn-default col-xs-5 col-xs-offset-1" ng-click="toggleAddForm(false)">Cancel</button>
+                  <button type="button" class="btn btn-primary col-xs-5 col-xs-offset-1">Add</button>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
+      <button type="button" class="btn btn-primary" ng-click="toggleAddForm(true)" ng-hide="showAddFormFlag">Add New</button>
     </div>
-    <!-- <div ng-view></div> -->
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="app/app.js"></script>
     <script src="app/filters/cardNumberFilter.js"></script>
-    <script src="app/payment/MainCtrl.js"></script>
-    <script src="app/payment/payment-entry.js"></script>
+    <script src="app/payment/PaymentCtrl.js"></script>
+    <script src="app/payment/yrPaymentEntry.js"></script>
   </body>
 </html>
