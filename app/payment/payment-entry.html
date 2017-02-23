@@ -1,1 +1,4 @@
-<h1>Hello</h1>
+<label class="col-sm-5">{{payment.cardNumber | cardNumberFilter}}</label>
+<label class="col-sm-2">{{payment.expiration.month}}/{{payment.expiration.year}}</label>
+<label class="col-sm-3">Default</label>
+<button class="col-sm-2 btn btn-danger" ng-click="deletePayment()">Delete</button>

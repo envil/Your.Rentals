@@ -5,6 +5,11 @@
 
     var paymentEntry = function() {
         return {
+            restrict: 'EAC',
+            scope: {
+                payment: '=payment',
+                deletePayment: '&deletePayment'
+            },
             templateUrl: '/app/payment/payment-entry.html'
         }
     };
