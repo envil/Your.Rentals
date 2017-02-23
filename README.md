@@ -2,4 +2,8 @@
 
 ## Initialization
 
-```bower install```
+```npm install```
+
+## Running
+
+```npm start```
