@@ -4,6 +4,7 @@
     var yrPayment = function() {
         var controller = ['$scope', function($scope) {
             $scope.showAddFormFlag = false;
+            $scope.newPayment = {};
 
             $scope.makeDefaultPayment = function (index) {
               if (typeof($scope.payments) != 'undefined' && $scope.payments != null) {

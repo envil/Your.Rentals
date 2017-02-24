@@ -7,29 +7,32 @@
       <label class="col-xs-4 text-center" ng-hide="payment.isDefault"><button type="button" class="btn btn-default" ng-click="makeDefaultPayment($index)">Make Default</button></label>
       <button type="button" class="col-xs-2 btn btn-danger" ng-click="deletePayment($index)">Delete</button>
     </li>
-    <li class="list-group-item" ng-show="showAddFormFlag">
+    <li class="list-group-item borderless" ng-show="showAddFormFlag">
       <div class="row">
         <label class="col-xs-4" for="cardNumber">Card Number</label>
         <label class="col-xs-2 text-center" for="month">Expiration</label>
         <label class="col-xs-1 text-center" for="month">CVC</label>
       </div>
       <div class="row">
-        <div class="col-xs-4">
-          <input type="text" class="form-control" id="" placeholder="Card Number">
-        </div>
-        <div class="col-xs-1">
-          <input type="text" class="form-control" id="" placeholder="MM">
-        </div>
-        <div class="col-xs-1">
-          <input type="text" class="form-control" id="" placeholder="YY">
-        </div>
-        <div class="col-xs-1">
-          <input type="text" class="form-control" id="" placeholder="CVC">
-        </div>
-        <div class="col-xs-5">
-          <div class="row">
-            <button type="button" class="btn btn-default col-xs-5 col-xs-offset-1" ng-click="toggleAddForm(false)">Cancel</button>
-            <button type="button" class="btn btn-primary col-xs-5 col-xs-offset-1">Add</button>
+        <div ng-form name="cardinfo" class="css-form" novalidate>
+          <div class="col-xs-4">
+            <input type="text" class="form-control" name="cardNumber" ng-model="newPayment.cardNumber" card-number placeholder="Card Number">
+            <span ng-show="cardinfo.cardNumber.$error.cardNumber">The number is too big invalid!</span><br>
+          </div>
+          <div class="col-xs-1">
+            <input type="text" class="form-control" name="expMonth" placeholder="MM">
+          </div>
+          <div class="col-xs-1">
+            <input type="text" class="form-control" name="expYear" placeholder="YY">
+          </div>
+          <div class="col-xs-1">
+            <input type="text" class="form-control" name="cvc" placeholder="CVC">
+          </div>
+          <div class="col-xs-5">
+            <div class="row">
+              <button type="button" class="btn btn-default col-xs-5 col-xs-offset-1" ng-click="toggleAddForm(false)">Cancel</button>
+              <button type="button" class="btn btn-primary col-xs-5 col-xs-offset-1">Add</button>
+            </div>
           </div>
         </div>
       </div>
