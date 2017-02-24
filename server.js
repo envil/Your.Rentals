@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 app.use('/', express.static(__dirname + '/')); // ← adjust
 app.listen(8089, function() {
-    console.log('Server running at http://127.0.0.1:8089');
+  console.log('Server running at http://127.0.0.1:8089');
 });
 
 const opn = require('opn')
