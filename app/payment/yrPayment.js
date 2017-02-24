@@ -5,6 +5,7 @@
   var yrPayment = function() {
     var controller = ['$scope', function($scope) {
       $scope.showAddFormFlag = false;
+      $scope.showPanel = false;
       $scope.newPayment = {};
 
       $scope.makeDefaultPayment = function(index) {
@@ -56,8 +57,7 @@
 
     return {
       scope: {
-        payments: '=',
-        showPanel: '='
+        payments: '='
       },
       controller: controller,
       templateUrl: '/app/payment/yrPayment.html'

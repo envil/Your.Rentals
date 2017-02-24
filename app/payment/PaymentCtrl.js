@@ -4,7 +4,6 @@
 
   var MainCtrl = function($scope) {
     $scope.payments = [];
-    $scope.showPanel = false;
   };
 
   app.controller('MainCtrl', ['$scope', MainCtrl]);
