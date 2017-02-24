@@ -5,6 +5,7 @@
         var controller = ['$scope', function($scope) {
             $scope.showAddFormFlag = false;
             $scope.newPayment = {};
+            // $scope.CARDEXPMONTH_REGEX = /^([0][1-9]|[1][0-2])$/g;
 
             $scope.makeDefaultPayment = function (index) {
               if (typeof($scope.payments) != 'undefined' && $scope.payments != null) {
@@ -20,9 +21,10 @@
             }
 
             $scope.deletePayment = function (index) {
+              var isDefault = $scope.payments[index].isDefault;
               if (typeof($scope.payments) != 'undefined' && $scope.payments != null && $scope.payments.length > 0) {
                   $scope.payments.splice(index, 1);
-                  if (index == 0 && $scope.payments.length > 0) {
+                  if (isDefault && $scope.payments.length > 0) {
                       $scope.makeDefaultPayment(0);
                   }
               }
@@ -30,6 +32,15 @@
 
             $scope.toggleAddForm = function(flag) {
                 $scope.showAddFormFlag = flag;
+                if (!flag) {
+                  $scope.newPayment = {};
+                }
+            }
+
+            $scope.addNewPayment = function () {
+              $scope.showAddFormFlag = false;
+              $scope.payments.push($scope.newPayment);
+              $scope.newPayment = {};
             }
         }];
         return {
