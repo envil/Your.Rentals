@@ -1,4 +1,4 @@
-<div class="container panel panel-default">
+<div class="container panel panel-default" ng-show="showPanel">
   <ul class="list-group">
     <li class="row list-group-item" ng-repeat="payment in payments track by $index">
       <label class="col-xs-4">{{payment.cardNumber | cardNumberFilter}}</label>
@@ -37,17 +37,6 @@
             </div>
           </div>
         </div>
-        <!-- <div class="row">
-          <div class="col-sx-12 error" ng-show="cardinfo.cardNumber.$touched">
-            <span ng-show="cardinfo.cardNumber.$error.required">Please provide card number</span><br/>
-            <span ng-show="cardinfo.expMonth.$error.required">Please provide card expiration month</span><br/>
-            <span ng-show="cardinfo.expYear.$error.required">Please provide card expiration year</span><br/>
-            <span ng-show="cardinfo.cvc.$error.required">Please provide card cvc</span><br/>
-            <span ng-show="cardinfo.cardNumber.$error.maxlength">The card number is too long</span><br/>
-            <span ng-show="cardinfo.cardNumber.$error.minlength">The card number is too short</span><br/>
-            <span ng-show="cardinfo.cardNumber.$error.parttern">The card number is not in a correct format</span><br/>
-          </div>
-        </div> -->
       </div>
     </li>
   </ul>

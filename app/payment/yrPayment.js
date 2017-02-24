@@ -1,11 +1,11 @@
 (function() {
   'use strict';
   var app = angular.module('yrapp');
+
   var yrPayment = function() {
     var controller = ['$scope', function($scope) {
       $scope.showAddFormFlag = false;
       $scope.newPayment = {};
-      // $scope.CARDEXPMONTH_REGEX = /^([0][1-9]|[1][0-2])$/g;
 
       $scope.makeDefaultPayment = function(index) {
         if (typeof($scope.payments) != 'undefined' && $scope.payments != null) {
@@ -27,10 +27,17 @@
           if (isDefault && $scope.payments.length > 0) {
             $scope.makeDefaultPayment(0);
           }
+          if ($scope.payments.length == 0) {
+            $scope.showPanel = false;
+          }
         }
       }
 
       $scope.toggleAddForm = function(flag) {
+        $scope.showPanel = true;
+        if (!flag && $scope.payments.length == 0) {
+          $scope.showPanel = false;
+        }
         $scope.showAddFormFlag = flag;
         if (!flag) {
           $scope.newPayment = {};
@@ -39,17 +46,23 @@
 
       $scope.addNewPayment = function() {
         $scope.showAddFormFlag = false;
+        if ($scope.payments.length == 0) {
+          $scope.newPayment.isDefault = true;
+        }
         $scope.payments.push($scope.newPayment);
         $scope.newPayment = {};
       }
     }];
+
     return {
       scope: {
-        payments: '='
+        payments: '=',
+        showPanel: '='
       },
       controller: controller,
       templateUrl: '/app/payment/yrPayment.html'
     }
   };
+
   app.directive('yrPayment', yrPayment);
 }());
